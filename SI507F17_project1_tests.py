@@ -56,7 +56,41 @@ class TestCard(unittest.TestCase):
 
 class TestDeck(unittest.TestCase):
     def setUp(self):
-        pass
+        self.deck = Deck()
+
+    def test_init(self):
+        self.assertIsInstance(self.deck.cards[0], Card)
+        self.assertEqual(len(self.deck.cards), 52)
+
+    def test_pop_up(self):
+        exp_suit = self.deck.cards[-1].suit
+        exp_rank_num = self.deck.cards[-1].rank_num
+        popped_card = self.deck.pop_card()
+        self.assertEqual(popped_card.suit, exp_suit)
+        self.assertEqual(popped_card.rank_num, exp_rank_num)
+        self.assertEqual(len(self.deck.cards), 51)
+
+        exp_suit = self.deck.cards[10].suit
+        exp_rank_num = self.deck.cards[10].rank_num
+        popped_card = self.deck.pop_card(10)
+        self.assertEqual(popped_card.suit, exp_suit)
+        self.assertEqual(popped_card.rank_num, exp_rank_num)
+        self.assertEqual(len(self.deck.cards), 50)
+
+    def test_shuffle(self):
+        self.deck.shuffle()
+        self.assertEqual(len(self.deck.cards), 52) 
+
+    def test_replace(self):
+        card_to_rep = self.deck.pop_card()
+        self.deck.replace_card(card_to_rep)
+        self.assertTrue(card_to_rep in self.deck.cards)
+
+    def test_deal_hand(self):
+        deck_len = len(self.deck.cards)
+        act_cards = self.deck.deal_hand(deck_len)
+        self.assertTrue(len(self.deck.cards) == 0)
+        self.assertEqual(len(act_cards), deck_len)
 
     def tearDown(self):
         pass
