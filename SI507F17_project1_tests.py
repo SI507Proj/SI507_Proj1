@@ -12,7 +12,7 @@ from SI507F17_project1_cards import *
 
 class TestCard(unittest.TestCase):
     def setUp(self):
-        ## create sample cards and expected values  
+        # create sample cards and expected values
         self.sample_suits = [0, 1, 2, 3]
         self.sample_face_ranks = [1, 11, 12, 13]
         self.sample_other_ranks = [2, 5, 10]
@@ -49,9 +49,9 @@ class TestCard(unittest.TestCase):
         for i in range(len(self.sample_cards)):
             self.assertEqual(str(self.sample_cards[i]), str(self.expected_values[i][1]) + " of " + self.expected_values[i][0])
 
-
     def tearDown(self):
         pass
+
 
 class TestDeck(unittest.TestCase):
     def setUp(self):
@@ -78,7 +78,7 @@ class TestDeck(unittest.TestCase):
 
     def test_shuffle(self):
         self.deck.shuffle()
-        self.assertEqual(len(self.deck.cards), 52) 
+        self.assertEqual(len(self.deck.cards), 52)
 
     def test_replace(self):
         card_to_rep = self.deck.pop_card()
@@ -93,6 +93,7 @@ class TestDeck(unittest.TestCase):
 
     def tearDown(self):
         pass
+
 
 class TestGame(unittest.TestCase):
     def setUp(self):
@@ -121,6 +122,7 @@ class TestGame(unittest.TestCase):
     def tearDown(self):
         pass
 
+
 class TestSong(unittest.TestCase):
     def testUp(self):
         pass
@@ -139,4 +141,3 @@ class TestSong(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
-
