@@ -20,7 +20,6 @@ class TestCard(unittest.TestCase):
         self.sample_cards = []
         self.expected_values = []
 
-
         self.sample_cards.append(Card())
         self.expected_values.append([Card.suit_names[0], 2, 2])
         for suit in self.sample_suits:
@@ -95,6 +94,48 @@ class TestDeck(unittest.TestCase):
     def tearDown(self):
         pass
 
+class TestGame(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def test_output1(self):
+        exp_result = ["Player1", "Player2", "Tie"]
+        act_result = play_war_game(True)
+        # test output types
+        self.assertEqual(len(act_result), 3)
+        self.assertEqual(type(act_result), tuple)
+        self.assertTrue(act_result[0] in exp_result)
+        self.assertEqual(type(act_result[1]), int)
+        self.assertEqual(type(act_result[2]), int)
+
+    def test_ouput2(self):
+        # test scores
+        act_result = play_war_game(True)
+        if act_result[0] == "Player1":
+            self.assertTrue(act_result[1] > act_result[2])
+        elif act_result[0] == "Player2":
+            self.assertTrue(act_result[1] < act_result[2])
+        else:
+            self.assertTrue(act_result[1] == act_result[2])
+
+    def tearDown(self):
+        pass
+
+class TestSong(unittest.TestCase):
+    def testUp(self):
+        pass
+
+    def test_default(self):
+        song = show_song()
+        self.assertTrue("Winner" in str(song))
+
+    def test_search(self):
+        exp_search = "september"
+        song = show_song(exp_search)
+        self.assertTrue(exp_search in str(song))
+
+    def tearDown(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
