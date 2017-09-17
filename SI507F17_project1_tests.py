@@ -93,6 +93,13 @@ class TestDeck(unittest.TestCase):
         self.assertEqual(len(self.deck.cards), 52)
 
     def test_replace(self):
+        # test exisiting card
+        card_to_rep = self.deck.cards[-1]
+        self.deck.replace_card(card_to_rep)
+        count = self.deck.cards.count(card_to_rep)
+        self.assertTrue(count == 1)
+
+        # test not existing card
         card_to_rep = self.deck.pop_card()
         self.deck.replace_card(card_to_rep)
         self.assertTrue(card_to_rep in self.deck.cards)
