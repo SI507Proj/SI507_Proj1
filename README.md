@@ -2,16 +2,16 @@
 
 ## About the Project
 * This project about the simulation of the Card Game of War and its unittest.
-*The detailed explanation about the game can be found in [this link](http://www.bicyclecards.com/how-to-play/war/)
+* The detailed explanation about the game can be found in [this link](http://www.bicyclecards.com/how-to-play/war/)
 * Unittest parts check the expected behaviors of the game.
 * Please check the code description file in the repository
 
 ## Installation
 * Setup and Download
-1. Install and init Git
-2. Setup SSH key in your env and github
-3. Git clone with SSH git@github.com:sehwchoi/SI507_Proj1.git
-4. Or you can download the source files from [this link](https://github.com/sehwchoi/SI507_Proj1)
+	1. Install and init Git
+	2. Setup SSH key in your env and github
+	3. Git clone with SSH git@github.com:sehwchoi/SI507_Proj1.git
+	4. Or you can download the source files from [this link](https://github.com/sehwchoi/SI507_Proj1)
 
 * Python version
 This program requires Python Ver.3 to be installed
